@@ -26,3 +26,7 @@ for(website in html_files){
   
   cat("# Extracted data from webpage:", website, "\n")  
 }
+
+# merge all results
+all_urls <- unique(do.call(c, files_list))
+cat("Scraped", length(all_urls), "urls.")
