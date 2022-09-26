@@ -1,6 +1,6 @@
 library(stringr)
 library(XML)
-
+library(readr)
 
 # Define all links.
 # dir should be the location of the scraped htmls.
@@ -30,3 +30,6 @@ for(website in html_files){
 # merge all results
 all_urls <- unique(do.call(c, files_list))
 cat("Scraped", length(all_urls), "urls.")
+
+df <- data.frame(all_urls)
+readr::write_csv(df, "pararius_house_urls.csv")
